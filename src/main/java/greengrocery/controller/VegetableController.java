@@ -20,7 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
-@RequestMapping("vegetable")
+@RequestMapping("vegetables")
 public class VegetableController {
     @Autowired
     private VegetableService vegetableService;

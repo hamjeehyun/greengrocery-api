@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: 'greengrocery-api'
+  mvc:
+    static-path-pattern: /static/**
 
 greengrocery:
   fruit:
