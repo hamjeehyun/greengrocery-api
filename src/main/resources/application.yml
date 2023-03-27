@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: 'greengrocery-api'
+
+greengrocery:
+  fruit:
+    token: "http://fruit.api.postype.net/token"
+    prduct: "http://fruit.api.postype.net/product"
+  vegetable:
+    token: "http://vegetable.api.postype.net/token"
+    prduct: "http://vegetable.api.postype.net/item"
+
