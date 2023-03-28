@@ -2,18 +2,6 @@ $(document).ready(function () {
     getList();
 });
 
-function search() {
-    var category = $("#category option:selected").val();
-    var product = $("#kinds option:selected").val();
-    $('#priceArea').empty();
-
-    if (category == 'fruit') {
-        getFruitPrice(product)
-    } else if (category == 'vegetable') {
-        getVegetablePrice(product)
-    }
-}
-
 function getList() {
     var selected = $("#category option:selected").val();
     $('#kinds').empty();
@@ -22,6 +10,18 @@ function getList() {
         getFruitList();
     } else {
         getVegetableList();
+    }
+}
+
+function getPrice() {
+    var category = $("#category option:selected").val();
+    var product = $("#products option:selected").val();
+    $('#priceArea').empty();
+
+    if (category == 'fruit') {
+        getFruitPrice(product)
+    } else if (category == 'vegetable') {
+        getVegetablePrice(product)
     }
 }
 
@@ -39,7 +39,7 @@ function getFruitList() {
                 success: function (res) {
                     for (var i = 0; i < res.data.length; i++) {
                         var option = $("<option>" + res.data[i] + "</option>");
-                        $('#kinds').append(option);
+                        $('#products').append(option);
                     }
                 }
             });
@@ -61,7 +61,7 @@ function getVegetableList() {
                 success: function (res) {
                     for (var i = 0; i < res.data.length; i++) {
                         var option = $("<option>" + res.data[i] + "</option>");
-                        $('#kinds').append(option);
+                        $('#products').append(option);
                     }
                 }
             });
@@ -82,7 +82,7 @@ function getFruitPrice(product) {
                 },
                 data: {"name": product},
                 success: function (res) {
-                    $('#priceArea').append(res.data.price);
+                    $('#priceArea').append(res.data.price + " 원");
 
                 }
             });
@@ -103,7 +103,7 @@ function getVegetablePrice(product) {
                 },
                 data: {"name": product},
                 success: function (res) {
-                    $('#priceArea').append(res.data.price);
+                    $('#priceArea').append(res.data.price + " 원");
                 }
             });
         },
