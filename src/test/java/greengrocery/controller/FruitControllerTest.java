@@ -49,8 +49,10 @@ public class FruitControllerTest {
         String fruitAccessToken = "fruitAccessToken";
 
         List<String> expected = new ArrayList<>();
-        expected.add("사과");
         expected.add("배");
+        expected.add("토마토");
+        expected.add("사과");
+        expected.add("바나나");
 
         //When
         when(fruitService.getFruitList(fruitAccessToken)).thenReturn(expected);
@@ -59,8 +61,10 @@ public class FruitControllerTest {
         mockMvc.perform(get("/fruits/list").header("token", fruitAccessToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.message").value("성공"))
-                .andExpect(jsonPath("$.data[0]").value("사과"))
-                .andExpect(jsonPath("$.data[1]").value("배"))
+                .andExpect(jsonPath("$.data[0]").value("배"))
+                .andExpect(jsonPath("$.data[1]").value("토마토"))
+                .andExpect(jsonPath("$.data[1]").value("사과"))
+                .andExpect(jsonPath("$.data[1]").value("바나나"))
                 .andDo(print());
     }
 
