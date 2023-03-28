@@ -29,6 +29,7 @@ public class FruitController {
     @GetMapping("token")
     public ResponseEntity<Message> getToken() {
         TokenDto token = fruitService.getToken();
+
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
@@ -44,6 +45,7 @@ public class FruitController {
     @GetMapping("list")
     public ResponseEntity<Message> getFruitList(@RequestHeader String token) {
         List<String> fruits = fruitService.getFruitList(token);
+
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
@@ -59,6 +61,7 @@ public class FruitController {
     @GetMapping("price")
     public ResponseEntity<Message> getFruitPrice(@RequestHeader String token, @RequestParam String name) {
         ProductDto price = fruitService.getFruitPrice(token, name);
+        
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));

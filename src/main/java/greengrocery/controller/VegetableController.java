@@ -29,6 +29,7 @@ public class VegetableController {
     @GetMapping("token")
     public ResponseEntity<Message> getToken() {
         TokenDto token = vegetableService.getToken();
+
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
@@ -43,6 +44,7 @@ public class VegetableController {
     @GetMapping("list")
     public ResponseEntity<Message> getVegetableList(@RequestHeader String token) {
         List<String> vegetable = vegetableService.getVegetableList(token);
+
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
@@ -58,6 +60,7 @@ public class VegetableController {
     @GetMapping("price")
     public ResponseEntity<Message> getVegetablePrice(@RequestHeader String token, @RequestParam String name) {
         ProductDto price = vegetableService.getVegetablePrice(token, name);
+
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
