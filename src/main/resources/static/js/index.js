@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 function getList() {
     var selected = $("#category option:selected").val();
-    $('#kinds').empty();
+    $('#products').empty();
     $('#priceArea').empty();
     if (selected === "fruit") {
         getFruitList();
