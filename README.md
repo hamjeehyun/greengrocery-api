@@ -119,7 +119,7 @@ transfer-encoding: chunked
   }
 }
 ```
-### 4. [GET] 채소 토큰 발금
+### 4. [GET] 채소 토큰 발급
 ```
 /vegetables/token
 ```
