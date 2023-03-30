@@ -1,4 +1,4 @@
-# 청과물 가격을 조회 API 중계 웹 어플리케이션 서버
+# 청과물 가격 조회 API 중계 웹 어플리케이션 서버
 
 #### Swagger 
 > http://localhost:8080/swagger-ui.html
